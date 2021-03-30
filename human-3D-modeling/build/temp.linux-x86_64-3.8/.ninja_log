@@ -1,0 +1,7 @@
+# ninja log v5
+1	15807	1603744694149551764	/home/mohamed/PycharmProjects/torch/detectron2/build/temp.linux-x86_64-3.8/home/mohamed/PycharmProjects/torch/detectron2/detectron2/layers/csrc/box_iou_rotated/box_iou_rotated_cpu.o	d24c68be5a78eb2f
+1	16311	1603744694649565670	/home/mohamed/PycharmProjects/torch/detectron2/build/temp.linux-x86_64-3.8/home/mohamed/PycharmProjects/torch/detectron2/detectron2/layers/csrc/cocoeval/cocoeval.o	2772e22dc1b0de8c
+1	18678	1603744697017631535	/home/mohamed/PycharmProjects/torch/detectron2/build/temp.linux-x86_64-3.8/home/mohamed/PycharmProjects/torch/detectron2/detectron2/layers/csrc/nms_rotated/nms_rotated_cpu.o	41d16aac82b5672a
+1	22278	1603744700621731786	/home/mohamed/PycharmProjects/torch/detectron2/build/temp.linux-x86_64-3.8/home/mohamed/PycharmProjects/torch/detectron2/detectron2/layers/csrc/ROIAlign/ROIAlign_cpu.o	6e648b9d99eacc60
+0	22439	1603744700781736236	/home/mohamed/PycharmProjects/torch/detectron2/build/temp.linux-x86_64-3.8/home/mohamed/PycharmProjects/torch/detectron2/detectron2/layers/csrc/ROIAlignRotated/ROIAlignRotated_cpu.o	c645a382efa33d09
+0	34843	1603744713182081223	/home/mohamed/PycharmProjects/torch/detectron2/build/temp.linux-x86_64-3.8/home/mohamed/PycharmProjects/torch/detectron2/detectron2/layers/csrc/vision.o	57d2d70f3825c65a
