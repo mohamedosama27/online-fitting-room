@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_web_client_id" translatable="false">966707535177-kigv70b7ttvjd5prjn0alld9dkablbom.apps.googleusercontent.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">966707535177</string>
+    <string name="google_api_key" translatable="false">AIzaSyBBBQxWKIWtTYB-UMa-KJDc-BHaxKv_5To</string>
+    <string name="google_app_id" translatable="false">1:966707535177:android:1896e0dbd19a44bfb9ce98</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyBBBQxWKIWtTYB-UMa-KJDc-BHaxKv_5To</string>
+    <string name="google_storage_bucket" translatable="false">virtualfittingroom-853d3.appspot.com</string>
+    <string name="project_id" translatable="false">virtualfittingroom-853d3</string>
+</resources>

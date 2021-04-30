@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "966707535177",
+    "project_id": "virtualfittingroom-853d3",
+    "storage_bucket": "virtualfittingroom-853d3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:966707535177:android:1896e0dbd19a44bfb9ce98",
+        "android_client_info": {
+          "package_name": "com.example.flask_test2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "966707535177-kigv70b7ttvjd5prjn0alld9dkablbom.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBBBQxWKIWtTYB-UMa-KJDc-BHaxKv_5To"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "966707535177-kigv70b7ttvjd5prjn0alld9dkablbom.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

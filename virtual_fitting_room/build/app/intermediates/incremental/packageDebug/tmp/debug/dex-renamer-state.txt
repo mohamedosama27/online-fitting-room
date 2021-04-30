@@ -1,0 +1,4 @@
+#Fri Apr 30 02:54:53 EET 2021
+base.0=D\:\\virtual_fitting_room\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\out\\classes.dex
+path.0=classes.dex
+renamed.0=classes.dex
