@@ -231,7 +231,6 @@ class LoginStatefulWidgetState extends State<LoginStatefulWidget> {
                                                       listen: false)
                                                   .signIn(email, password);
 
-                                              print("3adynaaaaaaaaaaaaaaaaaaa");
                                               Navigator.pushReplacement(
                                                   context,
                                                   MaterialPageRoute(

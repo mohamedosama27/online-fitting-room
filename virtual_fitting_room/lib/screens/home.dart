@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:virtual_fitting_room/provider/auth.dart';
 import 'package:virtual_fitting_room/screens/cart.dart';
 import 'package:virtual_fitting_room/screens/clothes.dart';
 import 'package:virtual_fitting_room/screens/home_page.dart';
@@ -12,14 +14,15 @@ class Home extends StatefulWidget {
   @override
   _HomeScreenState createState() => _HomeScreenState();
 }
+
 class _HomeScreenState extends State<Home> {
   int _selectedIndex = 0;
 
   static const TextStyle optionStyle =
-  TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
+      TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
 
   Widget body() {
-    switch(_selectedIndex) {
+    switch (_selectedIndex) {
       case 0:
         return HomePage();
         break;
@@ -34,16 +37,19 @@ class _HomeScreenState extends State<Home> {
         break;
     }
   }
+
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
     });
   }
+
   void showMoreButton() {
     setState(() {
       _selectedIndex = 1;
     });
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -52,7 +58,7 @@ class _HomeScreenState extends State<Home> {
           leading: IconButton(
             icon: Icon(Icons.logout),
             onPressed: () {
-              Navigator.pop(context);
+              Provider.of<Auth>(context, listen: false).logout();
               Navigator.push(
                   context, MaterialPageRoute(builder: (context) => login()));
             },
@@ -63,24 +69,22 @@ class _HomeScreenState extends State<Home> {
                   style: TextStyle(color: Colors.white, fontSize: 25))),
           actions: <Widget>[
             IconButton(
-              icon:  new Stack(
-                  children: <Widget>[
-                    new Icon(Icons.shopping_cart),
-                    new Positioned(  // draw a red marble
-                      top: 0.0,
-                      right: 0.0,
-                      child: new Icon(Icons.brightness_1, size: 8.0,
-                          color: Colors.redAccent),
-                    )
-                  ]
-              ),
+              icon: new Stack(children: <Widget>[
+                new Icon(Icons.shopping_cart),
+                new Positioned(
+                  // draw a red marble
+                  top: 0.0,
+                  right: 0.0,
+                  child: new Icon(Icons.brightness_1,
+                      size: 8.0, color: Colors.redAccent),
+                )
+              ]),
               onPressed: () {
                 Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => Cart()));
+                    context, MaterialPageRoute(builder: (context) => Cart()));
               },
-            )]
-      ),
+            )
+          ]),
       body: Center(
         child: body(),
       ),
@@ -110,5 +114,4 @@ class _HomeScreenState extends State<Home> {
       ),
     );
   }
-
 }
