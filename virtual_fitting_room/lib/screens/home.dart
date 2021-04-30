@@ -8,6 +8,8 @@ import 'package:virtual_fitting_room/screens/login.dart';
 import 'package:virtual_fitting_room/screens/my_account.dart';
 import 'package:virtual_fitting_room/screens/notifications.dart';
 
+import 'images_screen.dart';
+
 class Home extends StatefulWidget {
   Home({Key key}) : super(key: key);
 
@@ -30,7 +32,7 @@ class _HomeScreenState extends State<Home> {
         return Clothes();
         break;
       case 2:
-        return Notifications();
+        return ImagesScreen();
         break;
       case 3:
         return myAccount();

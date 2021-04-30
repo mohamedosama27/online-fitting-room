@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 import 'dart:typed_data';
+import 'package:virtual_fitting_room/provider/auth.dart';
 import 'package:virtual_fitting_room/provider/measurement.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -194,8 +195,9 @@ class bodyMeasurementsStatefulWidgetState extends State<bodyMeasurements> {
                                 width: _width * 0.5,
                                 height: _height * 0.07,
                                 margin: EdgeInsets.only(bottom: 10),
-                                child: Consumer<measurement>(
-                                  builder: (ctx, value, _) => RaisedButton(
+                                child: Consumer2<measurement, Auth>(
+                                  builder: (ctx, value, auth, _) =>
+                                      RaisedButton(
                                     child: Text('Confirm',
                                         style: TextStyle(fontSize: 24)),
                                     onPressed: () {
@@ -209,16 +211,16 @@ class bodyMeasurementsStatefulWidgetState extends State<bodyMeasurements> {
                                               '31',
                                               context),*/
                                         value.add(
-                                          id: DateTime.now().toString(),
-                                          weight:
-                                              double.parse(controllers[0].text),
-                                          height:
-                                              double.parse(controllers[1].text),
-                                          chest:
-                                              double.parse(controllers[2].text),
-                                          hip:
-                                              double.parse(controllers[3].text),
-                                        );
+                                            id: DateTime.now().toString(),
+                                            weight: double.parse(
+                                                controllers[0].text),
+                                            height: double.parse(
+                                                controllers[1].text),
+                                            chest: double.parse(
+                                                controllers[2].text),
+                                            hip: double.parse(
+                                                controllers[3].text),
+                                            uid: auth.userId);
                                       }
                                     },
                                     color: Color(0xFF9F140B),

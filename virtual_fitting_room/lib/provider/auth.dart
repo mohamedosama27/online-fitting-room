@@ -6,7 +6,7 @@ import 'package:http/http.dart' as http;
 class Auth with ChangeNotifier {
   String _token;
   DateTime _expiryDate;
-  String _userId;
+  String userId;
   Timer _authTimer;
 
   bool get isAuth {
@@ -40,7 +40,7 @@ class Auth with ChangeNotifier {
         throw "${resData['error']['message']}";
       }
       _token = resData['idToken'];
-      _userId = resData['localId'];
+      userId = resData['localId'];
       _expiryDate = DateTime.now()
           .add(Duration(seconds: int.parse(resData['expiresIn'])));
       //   autoLogout(); // duration to logout
@@ -60,7 +60,7 @@ class Auth with ChangeNotifier {
 
   void logout() {
     _token = null;
-    _userId = null;
+    userId = null;
     _expiryDate = null;
     if (_authTimer != null) {
       _authTimer.cancel();

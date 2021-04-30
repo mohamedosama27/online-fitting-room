@@ -227,10 +227,10 @@ class LoginStatefulWidgetState extends State<LoginStatefulWidget> {
                                           if (_formKey.currentState
                                               .validate()) {
                                             try {
-                                              Provider.of<Auth>(context,
+                                              await Provider.of<Auth>(context,
                                                       listen: false)
                                                   .signIn(email, password);
-
+                                              //   print("3adyt");
                                               Navigator.pushReplacement(
                                                   context,
                                                   MaterialPageRoute(
