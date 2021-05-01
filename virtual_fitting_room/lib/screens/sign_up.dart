@@ -1,10 +1,11 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:virtual_fitting_room/provider/auth.dart';
-import 'package:virtual_fitting_room/screens/home.dart';
+import 'package:virtual_fitting_room/provider/Users.dart';
 import 'package:virtual_fitting_room/screens/login.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
 
@@ -30,6 +31,8 @@ class signUpStatefulWidgetState extends State<signUpStatefulWidget> {
   final passowrdController = TextEditingController();
   String email = "";
   String password = "";
+  String name = "";
+  String gender = "";
 
   void _showErrorDialog(String message) {
     showDialog(
@@ -115,6 +118,7 @@ class signUpStatefulWidgetState extends State<signUpStatefulWidget> {
                         new Container(
                             child: TextFormField(
                           controller: fullNameController,
+                          onChanged: (val) => setState(() => name = val),
                           inputFormatters: [
                             new FilteringTextInputFormatter.allow(
                                 RegExp("[a-zA-Z]"))
@@ -176,49 +180,50 @@ class signUpStatefulWidgetState extends State<signUpStatefulWidget> {
                         )),
                         SizedBox(height: _height * 0.02),
                         new Container(
-                            child: TextFormField(
-                          controller: passowrdController,
-                          onChanged: (val) => setState(() => password = val),
-                          validator: (value) {
-                            if (value.isEmpty) {
-                              return "* Please enter your Password";
-                            } else if (value.length < 5) {
-                              return "* Password must contain at least 5 characters";
-                            }
-                            return null;
-                          },
-                          decoration: new InputDecoration(
-                            errorBorder: OutlineInputBorder(
-                              borderSide: BorderSide(width: 0.2),
-                            ),
-                            focusedErrorBorder: OutlineInputBorder(
-                              borderSide: BorderSide(width: 0.2),
-                            ),
-                            focusedBorder: OutlineInputBorder(
-                              borderSide: BorderSide(width: 0.2),
-                            ),
-                            enabledBorder: OutlineInputBorder(
-                              borderSide: BorderSide(width: 0.2),
-                            ),
-                            hintText: 'Password',
-                            suffixIcon: IconButton(
-                              icon: Icon(
-                                _passwordVisible
-                                    ? Icons.visibility
-                                    : Icons.visibility_off,
+                          child: TextFormField(
+                            controller: passowrdController,
+                            onChanged: (val) => setState(() => password = val),
+                            validator: (value) {
+                              if (value.isEmpty) {
+                                return "* Please enter your Password";
+                              } else if (value.length < 5) {
+                                return "* Password must contain at least 5 characters";
+                              }
+                              return null;
+                            },
+                            decoration: new InputDecoration(
+                              errorBorder: OutlineInputBorder(
+                                borderSide: BorderSide(width: 0.2),
                               ),
-                              onPressed: () {
-                                setState(() {
-                                  _passwordVisible = !_passwordVisible;
-                                });
-                              },
+                              focusedErrorBorder: OutlineInputBorder(
+                                borderSide: BorderSide(width: 0.2),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderSide: BorderSide(width: 0.2),
+                              ),
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(width: 0.2),
+                              ),
+                              hintText: 'Password',
+                              suffixIcon: IconButton(
+                                icon: Icon(
+                                  _passwordVisible
+                                      ? Icons.visibility
+                                      : Icons.visibility_off,
+                                ),
+                                onPressed: () {
+                                  setState(() {
+                                    _passwordVisible = !_passwordVisible;
+                                  });
+                                },
+                              ),
                             ),
+                            autofocus: false,
+                            obscureText: _passwordVisible,
+                            enableSuggestions: false,
+                            autocorrect: false,
                           ),
-                          autofocus: false,
-                          obscureText: _passwordVisible,
-                          enableSuggestions: false,
-                          autocorrect: false,
-                        )),
+                        ),
                         SizedBox(height: _height * 0.02),
                         new Container(
                             width: _width * 0.8,
@@ -228,38 +233,51 @@ class signUpStatefulWidgetState extends State<signUpStatefulWidget> {
                                 crossAxisAlignment: CrossAxisAlignment.stretch,
                                 children: [
                                   new Container(
-                                      height: _height * 0.07,
-                                      child: RaisedButton(
-                                        onPressed: () async {
-                                          if (_signUpFormKey.currentState
-                                              .validate()) {
-                                            try {
-                                              Provider.of<Auth>(context,
-                                                      listen: false)
-                                                  .signUp(email, password);
-                                              Navigator.pushReplacement(
-                                                  context,
-                                                  MaterialPageRoute(
-                                                      builder: (_) => login()));
-                                            } catch (error) {
-                                              _showErrorDialog(error);
-                                            }
-                                          }
-                                        },
-                                        shape: RoundedRectangleBorder(
-                                            borderRadius:
-                                                BorderRadius.circular(5.0),
-                                            side: BorderSide(
-                                                color: Color(0xFF9F140B))),
-                                        color: Color(0xFF9F140B),
-                                        child: Text(
-                                          "Sign Up",
-                                          style: TextStyle(
-                                            color: Colors.white,
-                                            fontSize: 25,
-                                          ),
-                                        ),
-                                      )),
+                                    height: _height * 0.07,
+                                    child: Consumer2<Users, Auth>(
+                                        builder: (ctx, value, auth, _) =>
+                                            RaisedButton(
+                                              onPressed: () async {
+                                                if (_signUpFormKey.currentState
+                                                    .validate()) {
+                                                  try {
+                                                    await Provider.of<Auth>(
+                                                            context,
+                                                            listen: false)
+                                                        .signUp(
+                                                            email, password);
+                                                    value.addUser(
+                                                        uid: auth.userId,
+                                                        gender: "male",
+                                                        name: name);
+
+                                                    Navigator.pushReplacement(
+                                                        context,
+                                                        MaterialPageRoute(
+                                                            builder: (_) =>
+                                                                login()));
+                                                  } catch (error) {
+                                                    _showErrorDialog(error);
+                                                  }
+                                                }
+                                              },
+                                              shape: RoundedRectangleBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          5.0),
+                                                  side: BorderSide(
+                                                      color:
+                                                          Color(0xFF9F140B))),
+                                              color: Color(0xFF9F140B),
+                                              child: Text(
+                                                "Sign Up",
+                                                style: TextStyle(
+                                                  color: Colors.white,
+                                                  fontSize: 25,
+                                                ),
+                                              ),
+                                            )),
+                                  ),
                                   SizedBox(height: _height * 0.02),
                                   new Container(
                                     margin:

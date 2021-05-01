@@ -32,7 +32,7 @@ class _HomeScreenState extends State<Home> {
         return Clothes();
         break;
       case 2:
-        return ImagesScreen();
+        return ImagesScreen(); //bdal el notification
         break;
       case 3:
         return myAccount();
