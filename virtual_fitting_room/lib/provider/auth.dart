@@ -44,6 +44,7 @@ class Auth with ChangeNotifier {
       _expiryDate = DateTime.now()
           .add(Duration(seconds: int.parse(resData['expiresIn'])));
       //   autoLogout(); // duration to logout
+      tryLogout();
       notifyListeners();
     } catch (e) {
       throw e;

@@ -33,6 +33,7 @@ class signUpStatefulWidgetState extends State<signUpStatefulWidget> {
   String password = "";
   String name = "";
   String gender = "";
+  String selectedvalueS;
 
   void _showErrorDialog(String message) {
     showDialog(
@@ -116,38 +117,59 @@ class signUpStatefulWidgetState extends State<signUpStatefulWidget> {
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
                         new Container(
-                            child: TextFormField(
-                          controller: fullNameController,
-                          onChanged: (val) => setState(() => name = val),
-                          inputFormatters: [
-                            new FilteringTextInputFormatter.allow(
-                                RegExp("[a-zA-Z]"))
-                          ],
-                          validator: (value) {
-                            if (value.isEmpty) {
-                              return "* Please enter your Name";
-                            } else if (value.length < 2) {
-                              return "* Please enter valid Name";
-                            }
-                            return null;
-                          },
-                          decoration: new InputDecoration(
-                            errorBorder: OutlineInputBorder(
-                              borderSide: BorderSide(width: 0.2),
+                          child: TextFormField(
+                            controller: fullNameController,
+                            onChanged: (val) => setState(() => name = val),
+                            inputFormatters: [
+                              new FilteringTextInputFormatter.allow(
+                                  RegExp("[a-zA-Z]"))
+                            ],
+                            validator: (value) {
+                              if (value.isEmpty) {
+                                return "* Please enter your Name";
+                              } else if (value.length < 2) {
+                                return "* Please enter valid Name";
+                              }
+                              return null;
+                            },
+                            decoration: new InputDecoration(
+                              errorBorder: OutlineInputBorder(
+                                borderSide: BorderSide(width: 0.2),
+                              ),
+                              focusedErrorBorder: OutlineInputBorder(
+                                borderSide: BorderSide(width: 0.2),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderSide: BorderSide(width: 0.2),
+                              ),
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(width: 0.2),
+                              ),
+                              hintText: 'Full Name',
                             ),
-                            focusedErrorBorder: OutlineInputBorder(
-                              borderSide: BorderSide(width: 0.2),
-                            ),
-                            focusedBorder: OutlineInputBorder(
-                              borderSide: BorderSide(width: 0.2),
-                            ),
-                            enabledBorder: OutlineInputBorder(
-                              borderSide: BorderSide(width: 0.2),
-                            ),
-                            hintText: 'Full Name',
+                            autofocus: false,
                           ),
-                          autofocus: false,
-                        )),
+                        ),
+                        Container(
+                          child: DropdownButtonFormField<String>(
+                              decoration: InputDecoration(labelText: 'Gender'),
+                              value: selectedvalueS,
+                              items: [
+                                DropdownMenuItem(
+                                  child: Text("Male"),
+                                  value: "male",
+                                ),
+                                DropdownMenuItem(
+                                  child: Text("Female"),
+                                  value: "female",
+                                ),
+                              ],
+                              onChanged: (value) {
+                                setState(() {
+                                  selectedvalueS = value;
+                                });
+                              }),
+                        ),
                         SizedBox(height: _height * 0.02),
                         new Container(
                             child: TextFormField(
@@ -248,7 +270,7 @@ class signUpStatefulWidgetState extends State<signUpStatefulWidget> {
                                                             email, password);
                                                     value.addUser(
                                                         uid: auth.userId,
-                                                        gender: "male",
+                                                        gender: selectedvalueS,
                                                         name: name);
 
                                                     Navigator.pushReplacement(

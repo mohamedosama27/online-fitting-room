@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\virtual_fitting_room\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-my\\values-my.xml",
+            "outputFile": "D:\\online-fitting-room\\virtual_fitting_room\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-my\\values-my.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Dell\\.gradle\\caches\\transforms-2\\files-2.1\\806718ccd7268b5798029d3c820a8302\\jetified-play-services-basement-17.1.0\\res\\values-my\\values.xml",

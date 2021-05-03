@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\virtual_fitting_room\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
+            "outputFile": "D:\\online-fitting-room\\virtual_fitting_room\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Dell\\.gradle\\caches\\transforms-2\\files-2.1\\3cac7c4fcbcdf9502baf4a9cc456e15f\\browser-1.0.0\\res\\values\\values.xml",
@@ -40,22 +40,20 @@
                     }
                 },
                 {
-                    "source": "D:\\virtual_fitting_room\\android\\app\\src\\main\\res\\values\\styles.xml",
+                    "source": "D:\\online-fitting-room\\virtual_fitting_room\\build\\app\\generated\\res\\google-services\\debug\\values\\values.xml",
                     "from": {
-                        "startLines": "3,14",
-                        "startColumns": "4,4",
-                        "startOffsets": "137,791",
-                        "endLines": "7,16",
-                        "endColumns": "12,12",
-                        "endOffsets": "433,953"
+                        "startLines": "2,3,4,5,6,7,8",
+                        "startColumns": "4,4,4,4,4,4,4",
+                        "startOffsets": "55,199,281,385,494,614,722",
+                        "endColumns": "143,81,103,108,119,107,84",
+                        "endOffsets": "194,276,380,489,609,717,802"
                     },
                     "to": {
-                        "startLines": "119,124",
-                        "startColumns": "4,4",
-                        "startOffsets": "9006,9303",
-                        "endLines": "123,126",
-                        "endColumns": "12,12",
-                        "endOffsets": "9298,9463"
+                        "startLines": "111,112,113,114,115,116,117",
+                        "startColumns": "4,4,4,4,4,4,4",
+                        "startOffsets": "8183,8327,8409,8513,8622,8742,8850",
+                        "endColumns": "143,81,103,108,119,107,84",
+                        "endOffsets": "8322,8404,8508,8617,8737,8845,8930"
                     }
                 },
                 {
@@ -97,20 +95,22 @@
                     }
                 },
                 {
-                    "source": "D:\\virtual_fitting_room\\build\\app\\generated\\res\\google-services\\debug\\values\\values.xml",
+                    "source": "D:\\online-fitting-room\\virtual_fitting_room\\android\\app\\src\\main\\res\\values\\styles.xml",
                     "from": {
-                        "startLines": "2,3,4,5,6,7,8",
-                        "startColumns": "4,4,4,4,4,4,4",
-                        "startOffsets": "55,199,281,385,494,614,722",
-                        "endColumns": "143,81,103,108,119,107,84",
-                        "endOffsets": "194,276,380,489,609,717,802"
+                        "startLines": "3,14",
+                        "startColumns": "4,4",
+                        "startOffsets": "137,791",
+                        "endLines": "7,16",
+                        "endColumns": "12,12",
+                        "endOffsets": "433,953"
                     },
                     "to": {
-                        "startLines": "111,112,113,114,115,116,117",
-                        "startColumns": "4,4,4,4,4,4,4",
-                        "startOffsets": "8183,8327,8409,8513,8622,8742,8850",
-                        "endColumns": "143,81,103,108,119,107,84",
-                        "endOffsets": "8322,8404,8508,8617,8737,8845,8930"
+                        "startLines": "119,124",
+                        "startColumns": "4,4",
+                        "startOffsets": "9006,9303",
+                        "endLines": "123,126",
+                        "endColumns": "12,12",
+                        "endOffsets": "9298,9463"
                     }
                 },
                 {
