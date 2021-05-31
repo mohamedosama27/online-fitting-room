@@ -10,16 +10,17 @@ class vendorHome extends StatefulWidget {
   @override
   _vendorHomeScreenState createState() => _vendorHomeScreenState();
 }
+
 class _vendorHomeScreenState extends State<vendorHome> {
   int _selectedIndex = 0;
 
   static const TextStyle optionStyle =
-  TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
+      TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
 
   Widget body() {
-    switch(_selectedIndex) {
+    switch (_selectedIndex) {
       case 0:
-        return Brands();
+        return BrandPage();
         break;
       case 1:
         return Notifications();
@@ -29,16 +30,19 @@ class _vendorHomeScreenState extends State<vendorHome> {
         break;
     }
   }
+
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
     });
   }
+
   void showMoreButton() {
     setState(() {
       _selectedIndex = 1;
     });
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,12 +53,7 @@ class _vendorHomeScreenState extends State<vendorHome> {
             onPressed: () {
               Navigator.pop(context);
               Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context)
-                      =>
-                          login()
-                  ));
+                  context, MaterialPageRoute(builder: (context) => login()));
             },
           ),
           centerTitle: true,
@@ -62,17 +61,13 @@ class _vendorHomeScreenState extends State<vendorHome> {
               child: Text("Virtual Fitting Room",
                   textAlign: TextAlign.center,
                   style: TextStyle(color: Colors.white, fontSize: 25))),
-          actions: <Widget>[
-            Container()
-           ]
-      ),
+          actions: <Widget>[Container()]),
       body: Center(
         child: body(),
       ),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         items: const <BottomNavigationBarItem>[
-         
           BottomNavigationBarItem(
             icon: Icon(Icons.dry_cleaning),
             label: 'Brands',
@@ -92,5 +87,4 @@ class _vendorHomeScreenState extends State<vendorHome> {
       ),
     );
   }
-
 }

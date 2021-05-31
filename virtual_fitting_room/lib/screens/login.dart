@@ -32,8 +32,9 @@ class LoginStatefulWidget extends StatefulWidget {
 class LoginStatefulWidgetState extends State<LoginStatefulWidget> {
   bool _passwordVisible;
   final _formKey = GlobalKey<FormState>();
-  final emailController = TextEditingController();
-  final passowrdController = TextEditingController();
+  final emailController =
+      TextEditingController(text: 'mohamed@miuegypt.edu.eg');
+  final passowrdController = TextEditingController(text: '123456');
 
   String email;
   String password;

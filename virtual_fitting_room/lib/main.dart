@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:virtual_fitting_room/provider/auth.dart';
+import 'package:virtual_fitting_room/provider/brand.dart';
+import 'package:virtual_fitting_room/provider/cloth.dart';
 import 'package:virtual_fitting_room/provider/measurement.dart';
 import 'package:virtual_fitting_room/provider/Users.dart';
 import 'package:virtual_fitting_room/screens/home.dart';
@@ -18,6 +20,12 @@ void main() {
         ),
         ChangeNotifierProvider<measurement>(
           create: (_) => measurement(),
+        ),
+        ChangeNotifierProvider<brand>(
+          create: (_) => brand(),
+        ),
+        ChangeNotifierProvider<cloth>(
+          create: (_) => cloth(),
         ),
       ],
       child: MyApp(),

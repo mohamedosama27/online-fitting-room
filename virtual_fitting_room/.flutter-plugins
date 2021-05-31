@@ -1,12 +1,15 @@
 # This is a generated file; do not edit or check into version control.
-firebase_auth=C:\\Users\\Dell\\AppData\\Local\\Pub\\Cache\\hosted\\pub.dartlang.org\\firebase_auth-0.20.1\\
-firebase_auth_web=C:\\Users\\Dell\\AppData\\Local\\Pub\\Cache\\hosted\\pub.dartlang.org\\firebase_auth_web-0.3.3\\
-firebase_core=C:\\Users\\Dell\\AppData\\Local\\Pub\\Cache\\hosted\\pub.dartlang.org\\firebase_core-0.7.0\\
-firebase_core_web=C:\\Users\\Dell\\AppData\\Local\\Pub\\Cache\\hosted\\pub.dartlang.org\\firebase_core_web-0.2.1+3\\
-firebase_database=C:\\Users\\Dell\\AppData\\Local\\Pub\\Cache\\hosted\\pub.dartlang.org\\firebase_database-6.0.0\\
-flutter_plugin_android_lifecycle=C:\\Users\\Dell\\AppData\\Local\\Pub\\Cache\\hosted\\pub.dartlang.org\\flutter_plugin_android_lifecycle-1.0.11\\
-image_picker=C:\\Users\\Dell\\AppData\\Local\\Pub\\Cache\\hosted\\pub.dartlang.org\\image_picker-0.6.7+22\\
-path_provider=C:\\Users\\Dell\\AppData\\Local\\Pub\\Cache\\hosted\\pub.dartlang.org\\path_provider-1.6.28\\
-path_provider_linux=C:\\Users\\Dell\\AppData\\Local\\Pub\\Cache\\hosted\\pub.dartlang.org\\path_provider_linux-0.0.1+2\\
-path_provider_macos=C:\\Users\\Dell\\AppData\\Local\\Pub\\Cache\\hosted\\pub.dartlang.org\\path_provider_macos-0.0.4+8\\
-path_provider_windows=C:\\Users\\Dell\\AppData\\Local\\Pub\\Cache\\hosted\\pub.dartlang.org\\path_provider_windows-0.0.4+3\\
+firebase_analytics=E:\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\firebase_analytics-5.0.16\\
+firebase_analytics_web=E:\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\firebase_analytics_web-0.1.1\\
+firebase_auth=E:\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\firebase_auth-0.16.1\\
+firebase_auth_web=E:\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\firebase_auth_web-0.1.3+1\\
+firebase_core=E:\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\firebase_core-0.4.5\\
+firebase_core_web=E:\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\firebase_core_web-0.1.1+2\\
+firebase_database=E:\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\firebase_database-3.1.6\\
+firebase_storage=E:\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\firebase_storage-3.1.6\\
+flutter_plugin_android_lifecycle=E:\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\flutter_plugin_android_lifecycle-1.0.11\\
+image_picker=E:\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\image_picker-0.6.7+22\\
+path_provider=E:\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\path_provider-1.6.28\\
+path_provider_linux=E:\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\path_provider_linux-0.0.1+2\\
+path_provider_macos=E:\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\path_provider_macos-0.0.4+8\\
+path_provider_windows=E:\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\path_provider_windows-0.0.4+3\\
