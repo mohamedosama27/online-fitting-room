@@ -30,12 +30,16 @@ class cloth with ChangeNotifier {
       //print(json.decode(res.body));
       final extractedCloth = json.decode(res.body) as Map<String, dynamic>;
       extractedCloth.forEach((clothId, clothData) {
-        clothlist.add(Cloth(
-            type: clothData["type"],
-            id: clothId,
-            price: clothData["price"],
-            backimage: clothData["backimage"],
-            frontimage: clothData["frontimage"]));
+        var extractdata = clothlist
+            .firstWhere((element) => element.id == clothId, orElse: () => null);
+        if (extractdata == null) {
+          clothlist.add(Cloth(
+              type: clothData["type"],
+              id: clothId,
+              price: clothData["price"],
+              backimage: clothData["backimage"],
+              frontimage: clothData["frontimage"]));
+        }
       });
       notifyListeners();
     } catch (error) {

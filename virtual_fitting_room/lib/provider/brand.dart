@@ -23,12 +23,16 @@ class brand with ChangeNotifier {
       //print(json.decode(res.body));
       final extractedBrand = json.decode(res.body) as Map<String, dynamic>;
       extractedBrand.forEach((brandId, brandData) {
-        brandlist.add(Brand(
-            address: brandData["address"],
-            id: brandId,
-            mobile: brandData["mobile"],
-            image: brandData["image"],
-            name: brandData["name"]));
+        var extractdata = brandlist
+            .firstWhere((element) => element.id == brandId, orElse: () => null);
+        if (extractdata == null) {
+          brandlist.add(Brand(
+              address: brandData["address"],
+              id: brandId,
+              mobile: brandData["mobile"],
+              image: brandData["image"],
+              name: brandData["name"]));
+        }
       });
       notifyListeners();
     } catch (error) {
