@@ -38,10 +38,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer<Auth>(
       builder: (ctx, value, _) => MaterialApp(
-        title: "virtual Fitting Room",
-        debugShowCheckedModeBanner: false,
-        home: value.isAuth ? Home() : welcome(),
-      ),
+          title: "virtual Fitting Room",
+          debugShowCheckedModeBanner: false,
+          home: welcome()),
     );
   }
 }

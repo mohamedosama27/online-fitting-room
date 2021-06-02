@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:virtual_fitting_room/provider/cloth.dart';
 import 'package:virtual_fitting_room/screens/human_model.dart';
 import 'package:virtual_fitting_room/widgets/home_item.dart';
 import 'package:virtual_fitting_room/widgets/painted_line.dart';
@@ -13,23 +15,29 @@ class HomePage extends StatefulWidget {
 
 class HomePageState extends State<HomePage> {
   int _current = 0;
-  List<String> imgNames = ['bluejeans.jpg', 'jacket.jpg', 'shirt.jpg'];
+  /*List<String> imgNames = ['bluejeans.jpg', 'jacket.jpg', 'shirt.jpg'];
   List<String> itemNames = ["Blue Jeans", "Jacket", "Shirt"];
-  List<String> itemPrices = ['200', '300', '100'];
+  List<String> itemPrices = ['200', '300', '100'];*/
   List<Widget> itemsList = new List<Widget>();
-
+  List<Cloth> clothList;
   @override
   void initState() {
-    for (var i = 0; i < itemNames.length; i++) {
-      itemsList.add(Container(
-        child: HomeItem(
-            imageName: imgNames[i], title: itemNames[i], price: itemPrices[i]),
-      ));
-    }
+    Provider.of<cloth>(context, listen: false).fetchCloth();
+    super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
+    List<Cloth> clothList = Provider.of<cloth>(context, listen: true).clothlist;
+
+    for (var i = 0; i < clothList.length; i++) {
+      itemsList.add(Container(
+          child: HomeItem(
+        imageName: clothList[i].frontimage,
+        title: clothList[i].type,
+        price: clothList[i].price,
+      )));
+    }
     double _height = MediaQuery.of(context).size.height;
     double _width = MediaQuery.of(context).size.width;
 
@@ -64,9 +72,9 @@ class HomePageState extends State<HomePage> {
                   autoPlay: true,
                   enlargeCenterPage: true,
                   height: _height * 0.5,
-                  onPageChanged: (index, reason) {
+                  onPageChanged: (i, reason) {
                     setState(() {
-                      _current = index;
+                      _current = i;
                     });
                   }),
             ),
@@ -75,7 +83,8 @@ class HomePageState extends State<HomePage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: itemsList.map((url) {
               int index = itemsList.indexOf(url);
-              return Container(
+              return Expanded(
+                  child: Container(
                 width: 8.0,
                 height: 8.0,
                 margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 2.0),
@@ -85,7 +94,7 @@ class HomePageState extends State<HomePage> {
                       ? Color.fromRGBO(0, 0, 0, 0.9)
                       : Color.fromRGBO(0, 0, 0, 0.4),
                 ),
-              );
+              ));
             }).toList(),
           ),
           RaisedButton(

@@ -32,7 +32,7 @@ class _HomeScreenState extends State<Home> {
         return Clothes();
         break;
       case 2:
-        return ImagesScreen(); //bdal el notification
+        return Notifications(); //bdal el notification
         break;
       case 3:
         return myAccount();
@@ -55,6 +55,8 @@ class _HomeScreenState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false, // set it to false
+
       appBar: AppBar(
           backgroundColor: Color(0xFF9F140B),
           leading: IconButton(

@@ -12,8 +12,14 @@ class ClothesItem extends StatelessWidget {
         child: GridTile(
       child: GestureDetector(
           onTap: () {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => ClothDetails()));
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => ClothDetails(
+                          itemImage: imageName,
+                          itemName: title,
+                          itemPrice: price,
+                        )));
           },
           child: Image.network(imageName)),
       footer: Container(

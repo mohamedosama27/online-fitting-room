@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:virtual_fitting_room/widgets/painted_line.dart';
 
 class ClothDetails extends StatelessWidget {
-  String itemName = "Black Jacket";
-  String itemImage = "jacket.jpg";
-  String itemPrice = "300";
+  String itemName;
+  String itemImage;
+  String itemPrice;
   String itemSize = "Medium";
   String itemType = "Jacket";
+  ClothDetails({this.itemName, this.itemImage, this.itemPrice});
 
   @override
   Widget build(BuildContext context) {
@@ -55,7 +56,6 @@ class ClothDetails extends StatelessWidget {
                           TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
                     ),
                   ),
-                 
                   SizedBox(
                     height: _height * 0.015,
                   ),
@@ -63,7 +63,7 @@ class ClothDetails extends StatelessWidget {
                       height: _height * 0.2,
                       decoration: BoxDecoration(
                         image: DecorationImage(
-                          image: AssetImage('assets/' + this.itemImage),
+                          image: NetworkImage(this.itemImage),
                           fit: BoxFit.fill,
                         ),
                       )),
@@ -72,7 +72,7 @@ class ClothDetails extends StatelessWidget {
                   ),
                   new Divider(
                     color: Colors.black12,
-                    thickness: _height*0.002,
+                    thickness: _height * 0.002,
                   ),
                   SizedBox(
                     height: _height * 0.015,
@@ -93,7 +93,7 @@ class ClothDetails extends StatelessWidget {
                       child: Container(
                           child: Center(
                         child: Text(
-                          this.itemPrice+" L.E",
+                          this.itemPrice + " L.E",
                           style: TextStyle(fontSize: 15),
                         ),
                       )),
@@ -104,7 +104,7 @@ class ClothDetails extends StatelessWidget {
                   ),
                   new Divider(
                     color: Colors.black12,
-                    thickness: _height*0.002,
+                    thickness: _height * 0.002,
                   ),
                   SizedBox(
                     height: _height * 0.015,
@@ -125,7 +125,7 @@ class ClothDetails extends StatelessWidget {
                       child: Container(
                         child: Center(
                             child: Text(
-                          this.itemType,
+                          this.itemName,
                           style: TextStyle(fontSize: 15),
                         )),
                       ),
@@ -136,7 +136,7 @@ class ClothDetails extends StatelessWidget {
                   ),
                   new Divider(
                     color: Colors.black12,
-                    thickness: _height*0.002,
+                    thickness: _height * 0.002,
                   ),
                   SizedBox(
                     height: _height * 0.015,
@@ -168,35 +168,38 @@ class ClothDetails extends StatelessWidget {
                   ),
                   new Divider(
                     color: Colors.black12,
-                    thickness: _height*0.002,
+                    thickness: _height * 0.002,
                   ),
                   Expanded(
-                      child:Align(
-                    alignment: Alignment.bottomCenter,
-                    child: Row(
-                      children: [
-                        Expanded(
-                          child: RaisedButton(
-                            child:
-                                Text('Try now', style: TextStyle(fontSize: 24)),
-                            onPressed: () async => {},
-                            color: Color(0xFF9F140B),
-                            textColor: Colors.white,
+                    child: Align(
+                      alignment: Alignment.bottomCenter,
+                      child: Row(
+                        children: [
+                          Expanded(
+                            child: RaisedButton(
+                              child: Text('Try now',
+                                  style: TextStyle(fontSize: 24)),
+                              onPressed: () async => {},
+                              color: Color(0xFF9F140B),
+                              textColor: Colors.white,
+                            ),
                           ),
-                        ),
-                        SizedBox(width: _width*0.02,),
-                        Expanded(
-                          child: RaisedButton(
-                            child: Text('Add to cart',
-                                style: TextStyle(fontSize: 24)),
-                            onPressed: () async => {},
-                            color: Color(0xFF9F140B),
-                            textColor: Colors.white,
+                          SizedBox(
+                            width: _width * 0.02,
                           ),
-                        )
-                      ],
+                          Expanded(
+                            child: RaisedButton(
+                              child: Text('Add to cart',
+                                  style: TextStyle(fontSize: 24)),
+                              onPressed: () async => {},
+                              color: Color(0xFF9F140B),
+                              textColor: Colors.white,
+                            ),
+                          )
+                        ],
+                      ),
                     ),
-                  ),)
+                  )
                 ]))));
   }
 }
