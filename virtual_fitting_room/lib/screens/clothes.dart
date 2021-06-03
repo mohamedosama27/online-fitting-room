@@ -74,7 +74,8 @@ class ClothesState extends State<Clothes> {
                   return ClothesItem(
                       imageName: clothList[index].frontimage,
                       title: clothList[index].type,
-                      price: clothList[index].price);
+                      price: clothList[index].price,
+                      item: clothList[index]);
                 },
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,

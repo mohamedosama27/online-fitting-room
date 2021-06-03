@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:virtual_fitting_room/provider/auth.dart';
 import 'package:virtual_fitting_room/provider/brand.dart';
+import 'package:virtual_fitting_room/provider/cart.dart';
 import 'package:virtual_fitting_room/provider/cloth.dart';
 import 'package:virtual_fitting_room/provider/measurement.dart';
 import 'package:virtual_fitting_room/provider/Users.dart';
@@ -27,6 +28,9 @@ void main() {
         ChangeNotifierProvider<cloth>(
           create: (_) => cloth(),
         ),
+        ChangeNotifierProvider<cart>(
+          create: (_) => cart(),
+        )
       ],
       child: MyApp(),
     ),

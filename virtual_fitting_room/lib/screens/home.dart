@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:virtual_fitting_room/provider/auth.dart';
+import 'package:virtual_fitting_room/provider/cart.dart';
 import 'package:virtual_fitting_room/screens/cart.dart';
 import 'package:virtual_fitting_room/screens/clothes.dart';
 import 'package:virtual_fitting_room/screens/home_page.dart';
@@ -87,6 +88,14 @@ class _HomeScreenState extends State<Home> {
                 Navigator.push(
                     context, MaterialPageRoute(builder: (context) => Cart()));
               },
+            ),
+            Padding(
+              padding: const EdgeInsets.all(10),
+              child: Consumer<cart>(
+                builder: (context, cart, child) {
+                  return Text("${cart.count}");
+                },
+              ),
             )
           ]),
       body: Center(
