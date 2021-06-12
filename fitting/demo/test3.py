@@ -207,11 +207,11 @@ def get_hip_width_side(predictions):
             count_pixels=count_pixels+1
 
     return count_pixels
-image_path = 'ayman.jpeg'
-side_image_path = 'ayman_s.jpeg'
+image_path = 'me6.jpeg'
+side_image_path = 'me7_s.jpeg'
 
-real_height = 184.0
-weight = 90.0
+real_height = 165.0
+weight = 51.0
 type = 'male'
 
 human_img, height = detect_human(image_path)
